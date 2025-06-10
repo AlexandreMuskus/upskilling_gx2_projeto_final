@@ -1,0 +1,40 @@
+[
+  {
+    "id": "PROD001",
+    "nome": "Notebook Dell Inspiron 15",
+    "categoria": "Eletrônicos",
+    "preco": 2899.99,
+    "descricao": "Notebook ideal para trabalho e estudos com bom desempenho.",
+    "especificacoes": {
+      "tela": "15.6 polegadas",
+      "processador": "Intel i5",
+      "memoria": "8GB RAM"
+    },
+    "disponivel": true
+  },
+  {
+    "id": "PROD002",
+    "nome": "Smartphone Samsung Galaxy A32",
+    "categoria": "Celulares",
+    "preco": 1499.00,
+    "descricao": "Smartphone com tela grande e bateria de longa duração.",
+    "especificacoes": {
+      "tela": "6.4 polegadas",
+      "sistema": "Android",
+      "memoria": "4GB RAM"
+    },
+    "disponivel": true
+  },
+  {
+    "id": "PROD003",
+    "nome": "Kit de Panelas Tramontina",
+    "categoria": "Cozinha",
+    "preco": 399.99,
+    "descricao": "Conjunto com 5 peças de alta durabilidade.",
+    "especificacoes": {
+      "material": "Alumínio com antiaderente",
+      "quantidade": "5 peças"
+    },
+    "disponivel": true
+  }
+]

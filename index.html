@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>Assistente Virtual</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; max-width: 600px; margin: auto; background: #f9f9f9; }
+    #chat { border: 1px solid #ccc; padding: 10px; height: 400px; overflow-y: scroll; background: #fff; margin-bottom: 10px; }
+    .msg { margin-bottom: 8px; }
+    .user { font-weight: bold; color: #007BFF; }
+    .bot { font-weight: bold; color: #28A745; }
+    input, button { padding: 10px; font-size: 1em; }
+    input { width: 80%; }
+    button { width: 18%; }
+  </style>
+</head>
+<body>
+  <h2>🛍️ Assistente Virtual</h2>
+  <div id="chat"></div>
+  <input type="text" id="input" placeholder="Digite sua pergunta..." />
+  <button onclick="enviar()">Enviar</button>
+
+  <script>
+    const chat = document.getElementById("chat");
+
+    function adicionarMensagem(texto, classe) {
+      const div = document.createElement("div");
+      div.className = "msg " + classe;
+      div.textContent = texto;
+      chat.appendChild(div);
+      chat.scrollTop = chat.scrollHeight;
+    }
+
+    async function enviar() {
+      const input = document.getElementById("input");
+      const pergunta = input.value.trim();
+      if (!pergunta) return;
+
+      adicionarMensagem("Você: " + pergunta, "user");
+      input.value = "";
+
+      try {
+        const resposta = await fetch(`http://127.0.0.1:8000/assistente?q=${encodeURIComponent(pergunta)}`);
+        const data = await resposta.json();
+        adicionarMensagem("Assistente: " + data.resposta, "bot");
+      } catch (error) {
+        adicionarMensagem("Erro ao se comunicar com o assistente.", "bot");
+      }
+    }
+
+    document.getElementById("input").addEventListener("keypress", function (e) {
+      if (e.key === "Enter") enviar();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+[
+  {
+    "pedido_id": "12345",
+    "status": "Em trânsito",
+    "produtos": ["PROD001"],
+    "data_compra": "2024-01-15",
+    "previsao_entrega": "2024-01-20"
+  },
+  {
+    "pedido_id": "67890",
+    "status": "Entregue",
+    "produtos": ["PROD003"],
+    "data_compra": "2024-02-01",
+    "previsao_entrega": "2024-02-05"
+  }
+]
