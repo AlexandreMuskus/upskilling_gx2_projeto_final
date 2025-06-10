@@ -21,7 +21,7 @@ class Assistente:
         
         if acao == "busca_produto":
             produtos = buscar_produto(pergunta)
-            return "\n".join([f"- {p['nome']} (R${p['preco']})" for p in produtos]) or "Nenhum produto encontrado."
+            return "".join([f"</br>- {p['nome']} (R${p['preco']})" for p in produtos]) or "Nenhum produto encontrado."
                 
         elif acao == "politica_loja":
             contexto = buscar_conhecimento(pergunta)

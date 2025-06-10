@@ -1,4 +1,3 @@
-# src/roteador.py
 from openai import OpenAI
 import os
 

@@ -40,16 +40,14 @@ def construir_index():
     db.save_local(INDEX_PATH)
 
 def buscar_conhecimento(pergunta: str, k: int = 3) -> str:
-    db = FAISS.load_local(INDEX_PATH, embeddings)
+    db = FAISS.load_local(INDEX_PATH, embeddings, allow_dangerous_deserialization=True)
     resultados = db.similarity_search(pergunta, k=k)
     return "\n".join([doc.page_content for doc in resultados])
 
 # Carrega o índice FAISS
 def carregar_index():
-    print(">>> Carregando índice FAISS...")
     embeddings = OpenAIEmbeddings()
     index = FAISS.load_local(INDEX_PATH, embeddings, allow_dangerous_deserialization=True)
-    print(">>> Índice carregado com sucesso!")
     return index
 
 # Busca produtos com base em uma consulta semântica

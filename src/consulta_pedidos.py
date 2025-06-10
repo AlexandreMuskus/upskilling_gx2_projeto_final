@@ -1,9 +1,7 @@
-# src/consulta_pedidos.py
 import json
 import re
 
 def consultar_status_pedido(pergunta: str) -> str:
-    # Expressão regular para capturar números de pedido (ex: 12345)
     match = re.search(r"#?(\d{4,})", pergunta)
     if not match:
         return "Por favor, informe o número do pedido (ex: #12345)."

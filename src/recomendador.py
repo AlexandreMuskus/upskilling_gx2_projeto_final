@@ -1,4 +1,3 @@
-# src/recomendador.py
 import json
 
 def recomendar_produto(pergunta: str) -> str:
